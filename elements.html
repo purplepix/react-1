@@ -11,7 +11,37 @@
 <body>
   <div id="app"></div>
   <script>
+    function HeaderComponent(props) {
+      return React.createElement(
+        'h1',
+        {id: 'superId'},
+        props.text
+      );
+    }
 
+    function ParagraphComponent(props) {
+      return React.createElement(
+        'p',
+        {className: 'superBanana'},
+        props.text
+      );
+    }
+
+    function WrapperComponent() {
+      const headerText = 'Banana';
+      const paragraphText = 'PEIXINHO';
+
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(HeaderComponent, {text: headerText}, null),
+        React.createElement(ParagraphComponent, {text: paragraphText}, null)
+      );
+    }
+
+    ReactDOM.render(
+      React.createElement(WrapperComponent, null, null), document.getElementById('app')
+    );
   </script>
 </body>
 </html>

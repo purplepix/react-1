@@ -10,27 +10,32 @@
 </head>
 <body>
   <div id="app"></div>
-  <script>
-    const headerText = "Banana";
-    const paragraphText = "La la la la la la";
-    
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
     function HeaderComponent(props) {
-      return React.createElement("h1", {id: "peixinho"}, props.text);
+      return <h1 id="superId">{props.text}</h1>;
     }
 
     function ParagraphComponent(props) {
-      return React.createElement("p", {id: "oi"}, "la la la la la");
+      return <p className="superBanana">Olar, {props.text}</p>;
     }
 
-    const wrapper = React.createElement(
-      "div", 
-      null, 
-      React.createElement(HeaderComponent, {text: headerText}), React.createElement(ParagraphComponent, {text: paragraphText}));
+    function WrapperComponent() {
+      const headerText = 'Bananaaaaa';
+      const paragraphText = 'PEIXINHO';
+      
+      return (
+        <div>
+          <HeaderComponent text={headerText} />
+          <ParagraphComponent text={paragraphText} />
+        </div>
+      );
+    }
 
     ReactDOM.render(
-      wrapper,
-      document.getElementById("app")
-    )
+      <WrapperComponent />,
+      document.getElementById('app')
+    );
   </script>
 </body>
 </html>

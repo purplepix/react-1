@@ -18,24 +18,28 @@
       }
 
       handleClick(event) {
+        console.log(event.target);
       }
 
       handleChange(event) {
+        console.log(event.target.value);
       }
 
       handleKeyUp(event) {
+        console.log(event.target.value);
       }
 
       handleMouseOver(event) {
+        console.log(event.target);
       }
 
       render() {
         return (
           <div>
-            <div style={{width: "50px", height: "50px", backgroundColor: "#006699"}} ></div>
-            <input />
-            <input />
-            <div style={{width: "50px", height: "50px", backgroundColor: "#889900"}}></div>
+            <div style={{width: "50px", height: "50px", backgroundColor: "#006699"}} onClick={this.handleClick}></div>
+            <input onChange={this.handleChange}/>
+            <input onKeyUp={this.handleKeyUp}/>
+            <div style={{width: "50px", height: "50px", backgroundColor: "#889900"}} onMouseOver={this.handleMouseOver}></div>
           </div>
         );
       }
