@@ -11,26 +11,7 @@
 <body>
   <div id="app"></div>
   <script>
-    const headerText = "Banana";
-    const paragraphText = "La la la la la la";
-    
-    function HeaderComponent(props) {
-      return React.createElement("h1", {id: "peixinho"}, props.text);
-    }
 
-    function ParagraphComponent(props) {
-      return React.createElement("p", {id: "oi"}, "la la la la la");
-    }
-
-    const wrapper = React.createElement(
-      "div", 
-      null, 
-      React.createElement(HeaderComponent, {text: headerText}), React.createElement(ParagraphComponent, {text: paragraphText}));
-
-    ReactDOM.render(
-      wrapper,
-      document.getElementById("app")
-    )
   </script>
 </body>
 </html>

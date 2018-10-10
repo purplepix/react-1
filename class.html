@@ -12,32 +12,23 @@
   <div id="app"></div>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    class HeaderComponent extends React.Component {
-      render() {
-        <h1>{props.text}</h1>;
-      }
-    }
-
-    class ParagraphComponent extends React.Component {
-      render() {
-        <p>{props.text}</p>;
-      }
-    }
-
-    class Wrapper extends React.Component {
-      render() {
-        const headerText = "Banana";
-        const paragraphText = "La la la la la la";
+    const headerText = "Banana";
+    const paragraphText = "La la la la la la";
         
-        return (
-          <div>
-            <HeaderComponent text={headerText}/>
-            <ParagraphComponent text={paragraphText} />
-          </div> 
-        );
-      }
+    function HeaderComponent(props) {
+      return <h1>{props.text}</h1>;
     }
-
+    function ParagraphComponent(props) {
+      return <p>{props.text}</p>
+    }
+    function Wrapper(props) {
+      return (
+        <div>
+          <HeaderComponent text={headerText}/>
+          <ParagraphComponent text={paragraphText} />
+        </div>  
+      );
+    }
     ReactDOM.render(
       <Wrapper />,
       document.getElementById("app")

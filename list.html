@@ -13,41 +13,16 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
 
-    function ListItem(props) {
-      const myClick = () => {
-        props.onClick(props.text)
-      }
-      return <li onClick={myClick}>{props.text}</li>
+    function ListItem() {
     }
 
     class FoodList extends React.Component {
       constructor(props) {
         super(props);
-        this.state = {
-          list: [
-            { food: "banana", id: "0" },
-            { food: "fish", id: "1" },
-            { food: "apple", id: "2" },
-            { food: "broccoli", id: "3" }
-          ]
-        }
-      }
-      handleClick(name) {
-        console.log(`Chamou o click no item: ${name}`)
       }
       render() {
-        console.log(this.state)
         return (
           <ul>
-            {
-              this.state.list.map(foodItem => (
-                <ListItem 
-                  key={foodItem.id} 
-                  text={foodItem.food}
-                  onClick={this.handleClick}
-                />
-              ))
-            }
           </ul> 
         );
       }

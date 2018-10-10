@@ -12,41 +12,37 @@
   <div id="app"></div>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    class FoodList extends React.Component {
+    class SuperEvents extends React.Component {
       constructor(props) {
         super(props);
       }
 
       handleClick(event) {
-        console.log("Clicou", event, event.target.value);
       }
 
       handleChange(event) {
-        console.log("Change", event, event.target.value);
       }
 
       handleKeyUp(event) {
-        console.log("KeyUp", event, event.target.value);
       }
 
       handleMouseOver(event) {
-        console.log("MouseOver", event, event.target.value);
       }
 
       render() {
         return (
           <div>
-            <div style={{width: "50px", height: "50px", backgroundColor: "#006699"}} onClick={this.handleClick} ></div>
-            <input onChange={this.handleChange} />
-            <input onKeyUp={this.handleKeyUp} />
-            <div style={{width: "50px", height: "50px", backgroundColor: "#889900"}} onMouseOver={this.handleMouseOver} ></div>
+            <div style={{width: "50px", height: "50px", backgroundColor: "#006699"}} ></div>
+            <input />
+            <input />
+            <div style={{width: "50px", height: "50px", backgroundColor: "#889900"}}></div>
           </div>
         );
       }
     }
 
     ReactDOM.render(
-      <FoodList />,
+      <SuperEvents />,
       document.getElementById("app")
     )
   </script>
