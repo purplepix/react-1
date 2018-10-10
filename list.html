@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    function ListItem(props) {
+      const myClick = () => {
+        props.onClick(props.text)
+      }
+      return <li onClick={myClick}>{props.text}</li>
+    }
+
+    class FoodList extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          list: [
+            { food: "banana", id: "0" },
+            { food: "fish", id: "1" },
+            { food: "apple", id: "2" },
+            { food: "broccoli", id: "3" }
+          ]
+        }
+      }
+      handleClick(name) {
+        console.log(`Chamou o click no item: ${name}`)
+      }
+      render() {
+        console.log(this.state)
+        return (
+          <ul>
+            {
+              this.state.list.map(foodItem => (
+                <ListItem 
+                  key={foodItem.id} 
+                  text={foodItem.food}
+                  onClick={this.handleClick}
+                />
+              ))
+            }
+          </ul> 
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <FoodList />,
+      document.getElementById("app")
+    )
+  </script>
+</body>
+</html>

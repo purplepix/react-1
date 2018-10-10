@@ -1,1 +1,54 @@
-// FAZER ESSE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    class FoodList extends React.Component {
+      constructor(props) {
+        super(props);
+      }
+
+      handleClick(event) {
+        console.log("Clicou", event, event.target.value);
+      }
+
+      handleChange(event) {
+        console.log("Change", event, event.target.value);
+      }
+
+      handleKeyUp(event) {
+        console.log("KeyUp", event, event.target.value);
+      }
+
+      handleMouseOver(event) {
+        console.log("MouseOver", event, event.target.value);
+      }
+
+      render() {
+        return (
+          <div>
+            <div style={{width: "50px", height: "50px", backgroundColor: "#006699"}} onClick={this.handleClick} ></div>
+            <input onChange={this.handleChange} />
+            <input onKeyUp={this.handleKeyUp} />
+            <div style={{width: "50px", height: "50px", backgroundColor: "#889900"}} onMouseOver={this.handleMouseOver} ></div>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <FoodList />,
+      document.getElementById("app")
+    )
+  </script>
+</body>
+</html>
