@@ -63,3 +63,11 @@ Hoje a biblioteca React tem as coisas que são em comum para todos os dispositiv
 O Babel é o cara que transpila o JSX em JS.
 
 * [Babel](https://babeljs.io/)
+
+# Functional and Class Components
+
+Os componentes funcionais eles são funções que recebem como paramentro as propriedades e eles renderizam o elemento com as propriedades. Eles são componentes "burros" que só recebem dados e mostram na tela.
+
+Os compomentes de classe, são os componentes que possuem todo o ciclo de vida do react e manipulam os estados. Eles são componentes um pouco mais complexos.
+
+* [Documentação](https://reactjs.org/docs/components-and-props.html)

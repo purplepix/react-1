@@ -11,12 +11,21 @@
 <body>
   <div id="app"></div>
   <script>
-    const header = React.createElement("h1", {id: "peixinho"}, "Banana");
-    console.log(header);
+    const headerText = "Banana";
+    const paragraphText = "La la la la la la";
+    
+    function HeaderComponent(props) {
+      return React.createElement("h1", {id: "peixinho"}, props.text);
+    }
 
-    const paragraph = React.createElement("p", {id: "oi"}, "la la la la la");
+    function ParagraphComponent(props) {
+      return React.createElement("p", {id: "oi"}, "la la la la la");
+    }
 
-    const wrapper = React.createElement("div", null, header, paragraph);
+    const wrapper = React.createElement(
+      "div", 
+      null, 
+      React.createElement(HeaderComponent, {text: headerText}), React.createElement(ParagraphComponent, {text: paragraphText}));
 
     ReactDOM.render(
       wrapper,
