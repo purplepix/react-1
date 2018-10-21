@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Document</title>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        //forma tradicional de lidar com a perca de referência do this
+        // this.handleClick = this.handleClick.bind(this);
+      }
+      state = {
+        name: 'Marcia',
+        age: 31
+      }
+      // handleClick(e) {
+      //   console.log(this.state);
+      //   console.log('otário, é vírus!');
+      // }
+      handleClick = (e) => {
+        //forma padrão para mudar os valores do state
+        this.setState({
+          name: 'Yoshi',
+          age: 4
+        })
+        //não executar dessa forma é considerado má prática:
+        //this.state.name = 'Mariana';
+      }
+      handleMouseOver = (e) => {
+        console.log('Deixa que eu toco sozinho');
+      }
+      handleCopy = (e) => {
+        alert('Vai copiar a sua vó!');
+      }
+      handleChange = (e) => {
+        this.setState({
+          name: e.target.value
+        })
+      }
+      handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('o nome foi atualizado no bando de dados, agora se chama: ' + this.state.name);
+      }
+      render() {
+        return (
+          <div className="appContent">
+            <h1>My name is {this.state.name}</h1>
+            {/*<p>I am {this.state.age} years old.</p>*/}
+            <button onClick={this.handleClick}>Click aqui</button>
+            <button onMouseOver={this.handleMouseOver}>Toca aqui</button>
+            <p onCopy={this.handleCopy}>Ouse me copiar</p>
+            <form onSubmit={this.handleSubmit}>
+              <input type="text" onChange={this.handleChange}/>
+              <button>Submit</button>
+            </form>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(<App />, document.getElementById('app'));
+  </script>
+</body>
+</html>
